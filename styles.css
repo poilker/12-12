@@ -8,31 +8,57 @@ h1 {
     color: #333;
 }
 
+/* 整體棋盤設定 */
 .board {
-    width: 300px;
-    height: 300px;
+    width: 330px;
+    height: 330px;
     margin: 20px auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     gap: 5px;
-    border: 2px solid #888; /* 加一個外框，看起來更明顯 */
+
+    /* 🔥 加厚邊框 */
+    border: 8px solid #444;
+    border-radius: 8px;
+
+    background-color: #000; /* 黑背景讓格子更明顯 */
 }
 
+/* 棋格 */
 .cell {
     background-color: white;
-    border: 2px solid #888;
-    font-size: 2em;
+    border: 3px solid #888;   /* 🔥 格子邊框加厚 */
+    font-size: 3em;
+    font-weight: bold;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.25s;
 }
 
+/* 滑過格子的效果 */
 .cell:hover {
-    background-color: #e0e0e0;
+    background-color: #e6e6e6;
 }
+
+/* 🔥 X：紅色 */
+.cell.x {
+    color: #d60000;
+}
+
+/* 🔥 O：藍色 */
+.cell.o {
+    color: #0057e7;
+}
+
+.controls {
+    margin-top: 15px;
+}
+
 
 .controls {
     margin-top: 10px;
