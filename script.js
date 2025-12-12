@@ -110,14 +110,22 @@ function getRandomMove() {
     return empty[Math.floor(Math.random() * empty.length)];
 }
 
-// 更新畫面
 function updateBoard() {
     const cells = document.getElementsByClassName("cell");
+
     for (let i = 0; i < 9; i++) {
-        cells[i].innerText = board[i] || "";
+        const val = board[i] || "";
+        cells[i].innerText = val;
+
+        // ⭐ 清除舊 class
+        cells[i].classList.remove("x");
+        cells[i].classList.remove("o");
+
+        // ⭐ 依照棋子加顏色 class
+        if (val === "X") cells[i].classList.add("x");
+        if (val === "O") cells[i].classList.add("o");
     }
 }
-
 // 判斷勝利
 function checkWin(player) {
     const wins = [
